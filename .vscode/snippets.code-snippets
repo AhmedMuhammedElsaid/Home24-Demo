@@ -1,0 +1,10 @@
+{
+	"Import styled emotion": {
+		"scope": "javascript,typescript,typescriptreact",
+		"prefix": "ims",
+		"body": [
+			"import styled from \"@emotion/styled\";"
+		],
+		"description": "Log output to console"
+	}
+}
