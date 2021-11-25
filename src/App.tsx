@@ -10,17 +10,17 @@ const Home = lazy(() => import('./pages/Home'));
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 
 export const App: FunctionComponent = () => {
-  return (
-    <ApolloProvider client={client}>
-      <Router>
-        <ThemeProvider theme={theme}>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path={`/:articleName`} component={Home} />
-            <Route component={ErrorPage} />
-          </Switch>
-        </ThemeProvider>
-      </Router>
-    </ApolloProvider>
-  );
+    return (
+        <ApolloProvider client={client}>
+            <Router>
+                <ThemeProvider theme={theme}>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path={`/:articleName`} component={Home} />
+                        <Route component={ErrorPage} />
+                    </Switch>
+                </ThemeProvider>
+            </Router>
+        </ApolloProvider>
+    );
 };
