@@ -4,11 +4,14 @@ export interface Prices {
         value: number;
     };
 }
+interface Images{
+   path: string
+}
 export interface Article {
     name: string;
     variantName: string;
     prices: Prices;
-    images: string[];
+    images:Images[] ;
 }
 export interface CategoryArticle {
     articles: Article[];
