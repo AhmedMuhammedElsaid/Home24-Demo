@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useCallback, useState } from 'react';
 import ProductsList from '../../components/ProductsList';
 import { useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { GET_PRODUCTS } from '../../services/queries';
 import Navbar from '../../components/Navbar';
 import Header from '../../components/Header';
@@ -12,7 +12,7 @@ import { Category, ChildCategory } from '../../types';
 const Home: FunctionComponent = () => {
     const { data, loading, error } = useQuery(GET_PRODUCTS);
     const [search, setSearch] = useState('');
-    const { articleName } = useParams<{ articleName: string }>();
+    const { pathname } = useLocation();
     const handleChange = useCallback((product) => setSearch(product), []);
 
     if (loading) return <Loader />;
@@ -23,12 +23,14 @@ const Home: FunctionComponent = () => {
             </H1>
         );
 
-    // grabbing the exact article based on the params , in case there is no match,
-    // will set the default article "default one"
+    /*  grabbing the exact article based on the pathname which is the category urlPath ,
+    in case there is no match,
+    will set the default article "default one"
+    */
     const currentData =
         data?.categories?.[0]?.childrenCategories.find(
             (category: ChildCategory) =>
-                category.urlPath.split('/')[1] === articleName,
+                category.urlPath === pathname?.slice(1),
         ) || data?.categories?.[0];
 
     const {

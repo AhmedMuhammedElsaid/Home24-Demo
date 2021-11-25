@@ -43,10 +43,10 @@ const Navbar: FunctionComponent<Props> = ({ categories }) => {
                         <li key={name}>
                             <CategoryLink
                                 // redirect to an exact category to filter by it's path.
-                                to={`/${urlPath.split('/')[1]}`}
+                                to={`/${urlPath}`}
                                 color={
                                     // change link color based on it's state ,active or not
-                                    pathname.includes(urlPath.split('/')[1])
+                                    pathname.includes(urlPath)
                                         ? theme.colors.navbar.active
                                         : theme.colors.navbar.link
                                 }

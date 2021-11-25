@@ -15,8 +15,7 @@ export const App: FunctionComponent = () => {
             <Router>
                 <ThemeProvider theme={theme}>
                     <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route exact path={`/:articleName`} component={Home} />
+                        <Route path="/" component={Home} />
                         <Route component={ErrorPage} />
                     </Switch>
                 </ThemeProvider>

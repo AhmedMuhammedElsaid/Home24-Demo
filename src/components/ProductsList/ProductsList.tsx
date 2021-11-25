@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import { Article as ArticleType } from './../../types';
+import { Article } from './../../types';
 import ProductItem from '../ProductItem';
 import { P } from '../StyledComponents';
 
@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 interface Props {
-    articles: ArticleType[];
+    articles: Article[];
 }
 
 const ProductsList: FunctionComponent<Props> = ({ articles }) => {
